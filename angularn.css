@@ -1,0 +1,15 @@
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+}
+body {
+  padding: 20px 40px;
+}
+.one {
+  box-shadow: 10px 5px 5px grey;
+  padding: 20px;
+  margin-bottom: 30px;
+}

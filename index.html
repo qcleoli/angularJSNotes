@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>AngularJS Notes</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Notes from w3schools' website">
+    <meta name="keywords" content="AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="angularn.css">
+    <script src="angularn.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </head>
+
+  <body>
+    <p class="one">
+      AngularJS is a JavaScript framework. It can be added to an HTML page with a script tag. AngularJS extends HTML attributes with Directives, and binds data to HTML with Expressions.
+    </p>
+    <table>
+      <tr>
+        <th rowspan="4">AngularJS Directives</th>
+        <td>AngularJS extends HTML with ng-directives.</td>
+        <td>The ng-app directive defines an AngularJS application.</td>
+        <td>The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.</td>
+        <td>The ng-bind directive binds application data to the HTML view.</td>
+        <td>The ng-init directive initializes AngularJS application variables.</td>
+      </tr>
+      <tr>
+        <td colspan="5" style="background-color:rgb(240, 240, 250);">
+           &ltdiv ng-app="" ng-init="firstName='one'"&gt<br>&nbsp;&nbsp;
+           &ltp&gtName: &ltinput type="text" ng-model="name"&gt&lt/p&gt<br>&nbsp;&nbsp;
+           &ltp ng-bind="name"&gt&lt/p&gt<br>&lt/div&gt
+        </td>
+      </tr>
+      <tr>
+        <td>AngularJS directive are HTML attributes with an ng prefix.</td>
+        <td>The ng-app directive tells AngularJS that the &ltdiv&gt element is the "owner" of an AngularJS application.</td>
+        <td>The ng-model directive binds the value of the input field to the application variable name.</td>
+        <td>The ng-bind directive binds the content of the &ltp&gt element to the application variable name.</td>
+      </tr>
+      <tr>
+        <td colspan="5">You can use data-ng-, instead of ng-, if you want to make your page HTML valid.</td>
+      </tr>
+      <tr>
+        <th rowspan="4">AngularJS Expressions</th>
+        <td>AngularJS expressions are written inside double braces: {{ expression }}</td>
+      </tr>
+      <tr>
+        <td>AngularJS will "output" data exactly where the expression is written</td>
+        <td>Like JavaScript expressions, AngularJS expressions can contain literals, operators, and variables.</td>
+        <td>Unlike JavaScript expressions, AngularJS expressions can be written inside HTML.</td>
+        <td>AngularJS expressions do not support conditionals, loops, and exceptions, while JavaScript expressions do.</td>
+        <td>AngularJS expressions support filters, while JavaScript expressions do not.</td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          &ltdiv ng-app=""&gt<br>&nbsp;&nbsp;
+          &ltp&gtMy first expression: {{ 5 + 5 }}&ltp&gt<br>
+          &lt/div&gt
+        </td>
+      </tr>
+        <td colspan="4">
+          &ltdiv ng-app="" ng-init="myCol='lightblue'"&gt<br>&nbsp;&nbsp;
+          &ltinput style="background-color:{{myCol}}" ng-model="myCol"&gt<br>
+          &lt/div&gt
+        </td>
+        <td>
+          <div ng-app="" ng-init="color1='lightblue'">
+            <input style="background-color:{{color1}}" ng-model="color1">
+          </div>
+        </td>
+      <tr>
+        <th rowspan="3">AngularJS Filters</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th rowspan="3">AngularJS Modules</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th rowspan="3">AngularJS Controllers</th>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>
