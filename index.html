@@ -17,15 +17,15 @@
     </p>
     <table>
       <tr>
-        <th rowspan="4">AngularJS Directives</th>
+        <th rowspan="8">AngularJS Directives</th>
         <td>AngularJS extends HTML with ng-directives.</td>
-        <td>The ng-app directive defines an AngularJS application.</td>
+        <td>The ng-app directive initializes an AngularJS application.</td>
         <td>The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.</td>
         <td>The ng-bind directive binds application data to the HTML view.</td>
         <td>The ng-init directive initializes AngularJS application variables.</td>
       </tr>
       <tr>
-        <td colspan="5" style="background-color:rgb(240, 240, 250);">
+        <td colspan="5" class="tdone">
            &ltdiv ng-app="" ng-init="firstName='one'"&gt<br>&nbsp;&nbsp;
            &ltp&gtName: &ltinput type="text" ng-model="name"&gt&lt/p&gt<br>&nbsp;&nbsp;
            &ltp ng-bind="name"&gt&lt/p&gt<br>&lt/div&gt
@@ -36,6 +36,61 @@
         <td>The ng-app directive tells AngularJS that the &ltdiv&gt element is the "owner" of an AngularJS application.</td>
         <td>The ng-model directive binds the value of the input field to the application variable name.</td>
         <td>The ng-bind directive binds the content of the &ltp&gt element to the application variable name.</td>
+        <td>The ng-repeat directive repeats an HTML element.</td>
+      </tr>
+      <tr>
+        <td colspan="2">The ng-directive can also:<br>
+          <ul>
+            <li>Provide type validation for application data (number, email, required).</li>
+            <li>Provide status for application data (invalid, dirty, touched, error).</li>
+            <li>Provide CSS classes for HTML elements.</li>
+            <li>Bind HTML elements to HTML forms.</li>
+          </ul>
+        </td>
+        <td>In addition to all the built-in AngularJS directives, you can create your own directives.
+        New directives are created by using the .directive function. To invoke the new directive, make an HTML element with the same tag name as the new directive.</td>
+        <td>When naming a directive, you must use a camel case name, w3TestDirective, but when invoking it, you must use - separated name, w3-test-directive.</td>
+        <td>You can invoke a directive by using: element name, attribute, class, comment.</td>
+      </tr>
+      <tr>
+       <td colspan="5" class="tdone">
+         &ltbody ng-app="myApp"&gt <br>
+         &ltw3-test-directive&gt&lt/w3-test-directive&gt <br>
+         &ltdiv w3-test-directive&gt&lt/div&gt <br>
+         &ltdiv class="w3-test-directive"&gt&lt/div&gt <br>
+         &lt!-- directive: w3-test-directive --> <br>
+         &ltscript&gt <br> &nbsp; &nbsp;
+         var app = angular.module("myApp", []); <br> &nbsp; &nbsp;
+         app.directive("w3TestDirective", function() { <br> &nbsp; &nbsp; &nbsp; &nbsp;
+         return { <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         template: "&lth1&gtMade by a directive!&lt/h1&gt" <br> &nbsp; &nbsp; &nbsp; &nbsp;
+         }; <br> &nbsp; &nbsp;
+         }); <br>
+         &lt/script&gt <br>
+         &lt/body&gt
+       </td>
+      </tr>
+      <tr>
+        <td>
+        You can restrict your directives to only be invoked by some of the methods. The restrict values are:
+        <ul>
+          <li>E for Element name</li>
+          <li>A for Attribute</li>
+          <li>C for Class</li>
+          <li>M for comment</li>
+        </ul>
+        By default the value is EA, meaning that both Element names and attribute names can invoke the directive.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="tdone">
+          app.directive("w3TestDirective", function() { <br> &nbsp; &nbsp;
+          return { <br>  &nbsp; &nbsp; &nbsp; &nbsp;
+          restrict: "A", <br>  &nbsp; &nbsp; &nbsp; &nbsp;
+          templat: "&lth1&gtmade by a directive!&lt/h1&gt" <br>  &nbsp; &nbsp;
+          }; <br>
+          });
+        </td>
       </tr>
       <tr>
         <td colspan="5">You can use data-ng-, instead of ng-, if you want to make your page HTML valid.</td>
@@ -43,6 +98,7 @@
       <tr>
         <th rowspan="4">AngularJS Expressions</th>
         <td>AngularJS expressions are written inside double braces: {{ expression }}</td>
+        <td>Data binding in AngularJS binds AngularJS expressions with AngularJS data.</td>
       </tr>
       <tr>
         <td>AngularJS will "output" data exactly where the expression is written</td>
@@ -52,13 +108,13 @@
         <td>AngularJS expressions support filters, while JavaScript expressions do not.</td>
       </tr>
       <tr>
-        <td colspan="5">
+        <td colspan="5" class="tdone">
           &ltdiv ng-app=""&gt<br>&nbsp;&nbsp;
-          &ltp&gtMy first expression: {{ 5 + 5 }}&ltp&gt<br>
+          &ltp&gtMy first expression: {{ 5 + 5 }}&lt/p&gt<br>
           &lt/div&gt
         </td>
       </tr>
-        <td colspan="4">
+        <td colspan="4" class="tdone">
           &ltdiv ng-app="" ng-init="myCol='lightblue'"&gt<br>&nbsp;&nbsp;
           &ltinput style="background-color:{{myCol}}" ng-model="myCol"&gt<br>
           &lt/div&gt
@@ -73,12 +129,41 @@
         <td></td>
       </tr>
       <tr>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
         <th rowspan="3">AngularJS Modules</th>
+        <td>A module is created by using the AngularJS function angular.module.</td>
+      </tr>
+      <tr>
+        <td colspan="5" class="tdone">
+          &ltdiv ng-app="myApp"&gt&lt/div&gt <br>
+          &ltscript&gt <br> &nbsp; &nbsp;
+          var app = angular.module("myApp", []); <br>
+          &lt/script&gt
+        </td>
+      </tr>
+      <tr>
         <td></td>
       </tr>
       <tr>
         <th rowspan="3">AngularJS Controllers</th>
-        <td></td>
+        <td>Refer to the controller with the ng-controller directive.</td>
+      </tr>
+      <tr>
+        <td colspan="5" class="tdone">
+          &ltdiv ng-app="myApp" ng-controller="myCtrl"&gt <br> &nbsp; &nbsp;
+          {{ firstword + " " + secondword }} <br>
+          &lt/div&gt <br>
+          &ltscript&gt <br> &nbsp; &nbsp;
+          var app = angular.module("myApp", []); <br> &nbsp; &nbsp;
+          app.controller("myCtrl", function($scope) { <br> &nbsp; &nbsp; &nbsp; &nbsp;
+          $scope.firstword = "one"; <br> &nbsp; &nbsp; &nbsp; &nbsp;
+          $scope.secondword = "two"; <br> &nbsp; &nbsp;
+          }); <br>
+          &lt/script&gt
+        </td>
       </tr>
     </table>
   </body>
